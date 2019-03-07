@@ -22,7 +22,6 @@ func main() {
 	messageBottom := strings.Repeat("-", len(message))
 	_, err := fmt.Printf(messageTmpl, messageTop, message, messageBottom)
 	if err != nil {
-		fmt.Println("wee woo wee woo! Format String failed!")
+		fmt.Println("wee woo wee woo! Print String failed! (how is this gonna happen...")
 	}
-
 }
