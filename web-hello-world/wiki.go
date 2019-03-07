@@ -10,6 +10,7 @@ import (
 )
 
 const LISTEN_ON string = ":8085"
+const FILESYSTEM_PREFIX string = "wiki_page_a67bb492_"
 
 type Page struct {
 	Title	string
@@ -17,12 +18,12 @@ type Page struct {
 }
 
 func (p *Page) save() error {
-	filename := p.Title + ".txt"
+	filename := FILESYSTEM_PREFIX + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(PageTitle string) (*Page, error) {
-	filename := PageTitle + ".txt"
+	filename := FILESYSTEM_PREFIX + PageTitle + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err	
